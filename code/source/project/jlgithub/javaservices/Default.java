@@ -12,10 +12,12 @@ import java.io.File;
 import java.io.IOException;
 import java.lang.String;
 import java.nio.file.FileSystems;
+import java.nio.file.FileVisitResult;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.SimpleFileVisitor;
 import java.nio.file.StandardCopyOption;
+import java.nio.file.attribute.BasicFileAttributes;
 // --- <<IS-END-IMPORTS>> ---
 
 public final class Default
@@ -71,7 +73,7 @@ public final class Default
 				new File(inputtgtDir).mkdirs();
 			
 			if  (new File(inputsrcDir, inputsrcName).isDirectory()) {
-				new DirCopier(FileSystems.getDefault().getPath(inputsrcDir, inputsrcName), FileSystems.getDefault().getPath(inputtgtDir, inputtgtName)).copy(inputinputoverwrite != null && inputinputoverwrite.equalsIgnoreCase("true"));
+				new DirCopier(FileSystems.getDefault().getPath(inputsrcDir, inputsrcName), FileSystems.getDefault().getPath(inputtgtDir, inputtgtName)).copy(inputoverwrite != null && inputoverwrite.equalsIgnoreCase("true"));
 			} else if (!(new File(inputtgtDir, inputtgtName).exists()) || (inputoverwrite != null && inputoverwrite.equalsIgnoreCase("true"))) {
 				Files.copy(FileSystems.getDefault().getPath(inputsrcDir, inputsrcName), FileSystems.getDefault().getPath(inputtgtDir, inputtgtName), StandardCopyOption.REPLACE_EXISTING);
 			}
@@ -110,6 +112,40 @@ public final class Default
 			this._src = src;
 			this._tgt = tgt;
 		}
+		public void copy(boolean overwrite) throws IOException, ServiceException {
+			
+			if (this._tgt.toFile().exists() && overwrite)
+				this._tgt.toFile().delete();
+			else if (this._tgt.toFile().exists())
+				throw new ServiceException("Target directory already exists and overwrite not specified!: " + this._tgt.toFile().getCanonicalPath());
+			
+			 Files.walkFileTree(_src, this);
+		}
+		
+		@Override
+	    public FileVisitResult visitFile(Path file, BasicFileAttributes attributes) {
+	 
+	        try {
+	            Path targetFile = _tgt.resolve(_src.relativize(file));
+	            Files.copy(file, targetFile);
+	        } catch (IOException ex) {
+	            System.err.println(ex);
+	        }
+	 
+	        return FileVisitResult.CONTINUE;
+	    }
+	 
+	    @Override
+	    public FileVisitResult preVisitDirectory(Path dir, BasicFileAttributes attributes) {
+	        try {
+	            Path newDir = _tgt.resolve(_src.relativize(dir));
+	            Files.createDirectory(newDir);
+	        } catch (IOException ex) {
+	            System.err.println(ex);
+	        }
+	 
+	        return FileVisitResult.CONTINUE;
+	    }
 	}
 
 	// --- <<IS-END-SHARED>> ---
