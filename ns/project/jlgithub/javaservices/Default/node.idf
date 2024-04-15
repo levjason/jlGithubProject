@@ -7,4 +7,10 @@
   <value name="node_pkg">JlGithubProject</value>
   <value name="is_public">false</value>
   <value name="encodeutf8">true</value>
+  <value name="shared"></value>
+  <value name="extends"></value>
+  <array name="implements" type="value" depth="1">
+  </array>
+  <array name="imports" type="value" depth="1">
+  </array>
 </Values>

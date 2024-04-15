@@ -7,3 +7,8 @@ packages:
   gitUrl: https://github.com/levjason/JlGithubProject
   gitUsername: levjason
   gitBranch: main
+services:
+- serviceName: project.jlgithub.javaservices.Default:copy
+  packages:
+  - name: JlGithubProject
+    version: "1.0"
