@@ -12,6 +12,7 @@ aXMuX3RndCA9IHRndDsKCQl9Cgl9Cgo=</value>
     <value>java.io.IOException</value>
     <value>java.lang.String</value>
     <value>java.nio.file.FileSystems</value>
+    <value>java.nio.file.Files</value>
     <value>java.nio.file.Path</value>
     <value>java.nio.file.SimpleFileVisitor</value>
     <value>java.nio.file.StandardCopyOption</value>

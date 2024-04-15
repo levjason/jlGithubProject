@@ -12,6 +12,7 @@ import java.io.File;
 import java.io.IOException;
 import java.lang.String;
 import java.nio.file.FileSystems;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.SimpleFileVisitor;
 import java.nio.file.StandardCopyOption;
@@ -70,8 +71,8 @@ public final class Default
 				new File(inputtgtDir).mkdirs();
 			
 			if  (new File(inputsrcDir, inputsrcName).isDirectory()) {
-				new DirCopier(FileSystems.getDefault().getPath(inputsrcDir, inputsrcName), FileSystems.getDefault().getPath(inputtgtDir, inputtgtName)).copy(overwrite != null && overwrite.equalsIgnoreCase("true"));
-			} else if (!(new File(inputtgtDir, inputtgtName).exists()) || (overwrite != null && overwrite.equalsIgnoreCase("true"))) {
+				new DirCopier(FileSystems.getDefault().getPath(inputsrcDir, inputsrcName), FileSystems.getDefault().getPath(inputtgtDir, inputtgtName)).copy(inputinputoverwrite != null && inputinputoverwrite.equalsIgnoreCase("true"));
+			} else if (!(new File(inputtgtDir, inputtgtName).exists()) || (inputoverwrite != null && inputoverwrite.equalsIgnoreCase("true"))) {
 				Files.copy(FileSystems.getDefault().getPath(inputsrcDir, inputsrcName), FileSystems.getDefault().getPath(inputtgtDir, inputtgtName), StandardCopyOption.REPLACE_EXISTING);
 			}
 		} catch (IOException e) {
