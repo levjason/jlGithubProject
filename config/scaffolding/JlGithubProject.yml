@@ -12,3 +12,7 @@ services:
   packages:
   - name: JlGithubProject
     version: "1.0"
+- serviceName: project.jlgithub.javaservices:copy
+  packages:
+  - name: JlGithubProject
+    version: "1.0"
