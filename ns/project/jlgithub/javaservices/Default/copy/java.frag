@@ -2,6 +2,15 @@
 
 <Values version="2.0">
   <value name="name">copy</value>
+  <array name="sig" type="value" depth="1">
+    <value>[i] field:0:required srcDir</value>
+    <value>[i] field:0:required srcName</value>
+    <value>[i] field:0:required tgtDir</value>
+    <value>[i] field:0:required tgtName</value>
+    <value>[i] field:0:required overwrite</value>
+    <value>[o] field:0:required tgtPath</value>
+  </array>
+  <value name="sigtype">java 3.5</value>
   <value name="encodeutf8">true</value>
   <value name="body">Ly8gLS0tIDw8SVMtQkVHSU4tUElQRUxJTkUtSU4+PiAtLS0KLy8gV0FSTklORzogQXV0byBnZW5l
 cmF0ZSBjb2RlIHdpbGwgbm90IGJlIHByZXNlcnZlZCB1cG9uIEphdmEgc2lnbmF0dXJlIHVwZGF0
@@ -21,5 +30,6 @@ SU5FLU9VVD4+IC0tLQovLyBXQVJOSU5HOiBBdXRvIGdlbmVyYXRlIGNvZGUgd2lsbCBub3QgYmUg
 cHJlc2VydmVkIHVwb24gSmF2YSBzaWduYXR1cmUgdXBkYXRlLgovLyBEbyBub3QgYWRkIGN1c3Rv
 bSBjb2RlIGhlcmUuCgpJRGF0YU1hcCBwaXBlbGluZU91dE1hcCA9IG5ldyBJRGF0YU1hcChwaXBl
 bGluZSk7CnBpcGVsaW5lT3V0TWFwLnB1dCgidGd0UGF0aCIsIG91dHB1dHRndFBhdGgpOwovLyAt
-LS0gPDxJUy1FTkQtUElQRUxJTkUtT1VUPj4gLS0t</value>
+LS0gPDxJUy1FTkQtUElQRUxJTkUtT1VUPj4gLS0tCnBpcGVsaW5lT3V0TWFwLnB1dCgidGd0UGF0
+aCIsIG5ldyBGaWxlKGlucHV0dGd0RGlyLCBpbnB1dHRndE5hbWUpLmdldFBhdGgoKSk7Cg==</value>
 </Values>

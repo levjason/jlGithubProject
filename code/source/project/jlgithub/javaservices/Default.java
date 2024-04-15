@@ -8,6 +8,7 @@ import com.wm.app.b2b.server.Service;
 import com.wm.app.b2b.server.ServiceException;
 // --- <<IS-START-IMPORTS>> ---
 import com.softwareag.util.IDataMap;
+import java.io.File;
 import java.lang.String;
 // --- <<IS-END-IMPORTS>> ---
 
@@ -64,6 +65,7 @@ public final class Default
 		IDataMap pipelineOutMap = new IDataMap(pipeline);
 		pipelineOutMap.put("tgtPath", outputtgtPath);
 		// --- <<IS-END-PIPELINE-OUT>> ---
+		pipelineOutMap.put("tgtPath", new File(inputtgtDir, inputtgtName).getPath());
 		// --- <<IS-END>> ---
 
                 
