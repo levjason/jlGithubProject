@@ -6,5 +6,14 @@
     <value>com.softwareag.util.IDataMap</value>
     <value>java.io.File</value>
     <value>java.lang.String</value>
+    <value>java.nio.file.Path</value>
+    <value>java.nio.file.SimpleFileVisitor</value>
+  </array>
+  <value name="shared">Cglwcml2YXRlIHN0YXRpYyBjbGFzcyBEaXJDb3BpZXIgZXh0ZW5kcyBTaW1wbGVGaWxlVmlzaXRv
+cjxQYXRoPiB7CgoJCXByaXZhdGUgUGF0aCBfc3JjOwoJCXByaXZhdGUgUGF0aCBfdGd0OwoKCQlE
+aXJDb3BpZXIoUGF0aCBzcmMsIFBhdGggdGd0KSB7CgoJCQl0aGlzLl9zcmMgPSBzcmM7CgkJCXRo
+aXMuX3RndCA9IHRndDsKCQl9Cgl9Cgo=</value>
+  <value name="extends"></value>
+  <array name="implements" type="value" depth="1">
   </array>
 </Values>

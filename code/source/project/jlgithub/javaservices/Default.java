@@ -10,6 +10,8 @@ import com.wm.app.b2b.server.ServiceException;
 import com.softwareag.util.IDataMap;
 import java.io.File;
 import java.lang.String;
+import java.nio.file.Path;
+import java.nio.file.SimpleFileVisitor;
 // --- <<IS-END-IMPORTS>> ---
 
 public final class Default
@@ -42,7 +44,7 @@ public final class Default
 		// --- <<IS-BEGIN-PIPELINE-IN>> ---
 		// WARNING: Auto generate code will not be preserved upon Java signature update.
 		// Do not add custom code here.
-		
+
 		IDataMap pipelineInMap = new IDataMap(pipeline);
 		String inputsrcDir = (String) pipelineInMap.get("srcDir");
 		String inputsrcName = (String) pipelineInMap.get("srcName");
@@ -50,18 +52,18 @@ public final class Default
 		String inputtgtName = (String) pipelineInMap.get("tgtName");
 		String inputoverwrite = (String) pipelineInMap.get("overwrite");
 		// --- <<IS-END-PIPELINE-IN>> ---
-		
+
 		// --- <<IS-BEGIN-INSTANCES-PIPELINE-OUT>> ---
 		// WARNING: Auto generate code will not be preserved upon Java signature update.
 		// Do not add custom code here.
-		
+
 		String outputtgtPath = null;
 		// --- <<IS-END-INSTANCES-PIPELINE-OUT>> ---
-		
+
 		// --- <<IS-BEGIN-PIPELINE-OUT>> ---
 		// WARNING: Auto generate code will not be preserved upon Java signature update.
 		// Do not add custom code here.
-		
+
 		IDataMap pipelineOutMap = new IDataMap(pipeline);
 		pipelineOutMap.put("tgtPath", outputtgtPath);
 		// --- <<IS-END-PIPELINE-OUT>> ---
@@ -70,5 +72,21 @@ public final class Default
 
                 
 	}
+
+	// --- <<IS-START-SHARED>> ---
+
+	private static class DirCopier extends SimpleFileVisitor<Path> {
+
+		private Path _src;
+		private Path _tgt;
+
+		DirCopier(Path src, Path tgt) {
+
+			this._src = src;
+			this._tgt = tgt;
+		}
+	}
+
+	// --- <<IS-END-SHARED>> ---
 }
 
