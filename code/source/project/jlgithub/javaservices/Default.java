@@ -52,7 +52,28 @@ public final class Default
 		String inputtgtName = (String) pipelineInMap.get("tgtName");
 		String inputoverwrite = (String) pipelineInMap.get("overwrite");
 		// --- <<IS-END-PIPELINE-IN>> ---
-
+		try {
+			
+			if (inputtgtName == null && inputtgtDir == null)
+				throw new ServiceException("Must specify either tgtName or tgtDir");
+			
+			if (tgt == null || tgt.length() == 0)
+				tgt = src;
+			
+			if (tgtDirectory == null)
+				tgtDirectory = srcDirectory;
+			
+			if (!new File(tgtDirectory).exists());
+				new File(tgtDirectory).mkdirs();
+			
+			if  (new File(srcDirectory, src).isDirectory()) {
+				new DirCopier(FileSystems.getDefault().getPath(srcDirectory, src), FileSystems.getDefault().getPath(tgtDirectory, tgt)).copy(overwrite != null && overwrite.equalsIgnoreCase("true"));
+			} else if (!(new File(tgtDirectory, tgt).exists()) || (overwrite != null && overwrite.equalsIgnoreCase("true"))) {
+				Files.copy(FileSystems.getDefault().getPath(srcDirectory, src), FileSystems.getDefault().getPath(tgtDirectory, tgt), StandardCopyOption.REPLACE_EXISTING);
+			}
+		} catch (IOException e) {
+			throw new ServiceException(e);
+		}
 		// --- <<IS-BEGIN-INSTANCES-PIPELINE-OUT>> ---
 		// WARNING: Auto generate code will not be preserved upon Java signature update.
 		// Do not add custom code here.
