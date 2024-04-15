@@ -1,0 +1,9 @@
+version: "1.0"
+info:
+  model: int-scaffold
+packages:
+- name: JlGithubProject
+  gitServerName: gitJl
+  gitUrl: https://github.com/levjason/JlGithubProject
+  gitUsername: levjason
+  gitBranch: main
