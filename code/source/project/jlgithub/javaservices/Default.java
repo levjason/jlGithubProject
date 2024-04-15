@@ -64,15 +64,15 @@ public final class Default
 				inputtgtName = inputsrcName;
 			
 			if (inputtgtDir == null)
-				inputtgtDir = srcDirectory;
+				inputtgtDir = inputsrcDir;
 			
 			if (!new File(inputtgtDir).exists());
 				new File(inputtgtDir).mkdirs();
 			
-			if  (new File(srcDirectory, inputsrcName).isDirectory()) {
-				new DirCopier(FileSystems.getDefault().getPath(srcDirectory, inputsrcName), FileSystems.getDefault().getPath(inputtgtDir, inputtgtName)).copy(overwrite != null && overwrite.equalsIgnoreCase("true"));
+			if  (new File(inputsrcDir, inputsrcName).isDirectory()) {
+				new DirCopier(FileSystems.getDefault().getPath(inputsrcDir, inputsrcName), FileSystems.getDefault().getPath(inputtgtDir, inputtgtName)).copy(overwrite != null && overwrite.equalsIgnoreCase("true"));
 			} else if (!(new File(inputtgtDir, inputtgtName).exists()) || (overwrite != null && overwrite.equalsIgnoreCase("true"))) {
-				Files.copy(FileSystems.getDefault().getPath(srcDirectory, inputsrcName), FileSystems.getDefault().getPath(inputtgtDir, inputtgtName), StandardCopyOption.REPLACE_EXISTING);
+				Files.copy(FileSystems.getDefault().getPath(inputsrcDir, inputsrcName), FileSystems.getDefault().getPath(inputtgtDir, inputtgtName), StandardCopyOption.REPLACE_EXISTING);
 			}
 		} catch (IOException e) {
 			throw new ServiceException(e);
