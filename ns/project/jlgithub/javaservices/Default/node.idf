@@ -9,9 +9,12 @@ aXMuX3RndCA9IHRndDsKCQl9Cgl9Cgo=</value>
   <array name="imports" type="value" depth="1">
     <value>com.softwareag.util.IDataMap</value>
     <value>java.io.File</value>
+    <value>java.io.IOException</value>
     <value>java.lang.String</value>
+    <value>java.nio.file.FileSystems</value>
     <value>java.nio.file.Path</value>
     <value>java.nio.file.SimpleFileVisitor</value>
+    <value>java.nio.file.StandardCopyOption</value>
   </array>
   <value name="extends"></value>
   <array name="implements" type="value" depth="1">

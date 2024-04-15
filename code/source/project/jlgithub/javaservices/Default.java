@@ -9,9 +9,12 @@ import com.wm.app.b2b.server.ServiceException;
 // --- <<IS-START-IMPORTS>> ---
 import com.softwareag.util.IDataMap;
 import java.io.File;
+import java.io.IOException;
 import java.lang.String;
+import java.nio.file.FileSystems;
 import java.nio.file.Path;
 import java.nio.file.SimpleFileVisitor;
+import java.nio.file.StandardCopyOption;
 // --- <<IS-END-IMPORTS>> ---
 
 public final class Default
@@ -57,19 +60,19 @@ public final class Default
 			if (inputtgtName == null && inputtgtDir == null)
 				throw new ServiceException("Must specify either tgtName or tgtDir");
 			
-			if (tgt == null || tgt.length() == 0)
-				tgt = src;
+			if (inputtgtName == null || inputtgtName.length() == 0)
+				inputtgtName = inputsrcName;
 			
-			if (tgtDirectory == null)
-				tgtDirectory = srcDirectory;
+			if (inputtgtDir == null)
+				inputtgtDir = srcDirectory;
 			
-			if (!new File(tgtDirectory).exists());
-				new File(tgtDirectory).mkdirs();
+			if (!new File(inputtgtDir).exists());
+				new File(inputtgtDir).mkdirs();
 			
-			if  (new File(srcDirectory, src).isDirectory()) {
-				new DirCopier(FileSystems.getDefault().getPath(srcDirectory, src), FileSystems.getDefault().getPath(tgtDirectory, tgt)).copy(overwrite != null && overwrite.equalsIgnoreCase("true"));
-			} else if (!(new File(tgtDirectory, tgt).exists()) || (overwrite != null && overwrite.equalsIgnoreCase("true"))) {
-				Files.copy(FileSystems.getDefault().getPath(srcDirectory, src), FileSystems.getDefault().getPath(tgtDirectory, tgt), StandardCopyOption.REPLACE_EXISTING);
+			if  (new File(srcDirectory, inputsrcName).isDirectory()) {
+				new DirCopier(FileSystems.getDefault().getPath(srcDirectory, inputsrcName), FileSystems.getDefault().getPath(inputtgtDir, inputtgtName)).copy(overwrite != null && overwrite.equalsIgnoreCase("true"));
+			} else if (!(new File(inputtgtDir, inputtgtName).exists()) || (overwrite != null && overwrite.equalsIgnoreCase("true"))) {
+				Files.copy(FileSystems.getDefault().getPath(srcDirectory, inputsrcName), FileSystems.getDefault().getPath(inputtgtDir, inputtgtName), StandardCopyOption.REPLACE_EXISTING);
 			}
 		} catch (IOException e) {
 			throw new ServiceException(e);
