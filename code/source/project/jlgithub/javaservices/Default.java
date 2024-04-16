@@ -203,10 +203,10 @@ public final class Default
 		InputStream in = null;
 		
 		try {
-			if (loadAs != null && loadAs.equalsIgnoreCase("stream")) {
-				in = new FileInputStream(new File(fname));
+			if (inputloadAs != null && inputloadAs.equalsIgnoreCase("stream")) {
+				in = new FileInputStream(new File(inputfname));
 			} else {
-				data = Files.readAllBytes(Paths.get(fname));
+				data = Files.readAllBytes(Paths.get(inputfname));
 			}
 		} catch (NoSuchFileException e ) {
 			if (ignoreError == null || !ignoreError.equalsIgnoreCase("true"))
@@ -218,11 +218,11 @@ public final class Default
 		
 		// pipeline out
 		
-		IDataUtil.put(c, "name", new File(fname).getName());
+		IDataUtil.put(c, "name", new File(inputfname).getName());
 		
 		if (data != null) {
 			
-			if (loadAs != null && loadAs.equalsIgnoreCase("string"))
+			if (inputloadAs != null && inputloadAs.equalsIgnoreCase("string"))
 				IDataUtil.put(c, "string", new String(data));
 			else
 				IDataUtil.put(c, "bytes", data);
