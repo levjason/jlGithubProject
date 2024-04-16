@@ -125,7 +125,27 @@ public final class Default
 		
 		String[] outputfiles = null;
 		// --- <<IS-END-INSTANCES-PIPELINE-OUT>> ---
+				// process
 		
+				File dir = new File(path);
+				String[] files;
+				
+				if (dir.exists()) {
+					if (dir.isDirectory())
+						files = dir.list(new FilenameFilter() {
+							
+							@Override
+							public boolean accept(File file, String filename) {
+								
+								return !filename.startsWith(".") && (filter == null || filename.toLowerCase().contains(filter.toLowerCase()));
+							}
+						});
+					else
+						throw new ServiceException("path is not a directory:" + path);
+				} else {
+					throw new ServiceException("Directory does not exist:" + path);
+				}
+				
 		// --- <<IS-BEGIN-PIPELINE-OUT>> ---
 		// WARNING: Auto generate code will not be preserved upon Java signature update.
 		// Do not add custom code here.
