@@ -28,3 +28,7 @@ services:
   packages:
   - name: JlGithubProject
     version: "1.0"
+- serviceName: project.jlgithub.javaservices:readFile
+  packages:
+  - name: JlGithubProject
+    version: "1.0"
