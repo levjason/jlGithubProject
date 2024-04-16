@@ -28,6 +28,7 @@ CXJldHVybiBGaWxlVmlzaXRSZXN1bHQuQ09OVElOVUU7CgkJfQoJfQoK</value>
     <value>java.io.File</value>
     <value>java.io.FilenameFilter</value>
     <value>java.io.IOException</value>
+    <value>java.lang.Object</value>
     <value>java.lang.String</value>
     <value>java.nio.file.FileSystems</value>
     <value>java.nio.file.FileVisitResult</value>

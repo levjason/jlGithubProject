@@ -11,6 +11,7 @@ import com.softwareag.util.IDataMap;
 import java.io.File;
 import java.io.FilenameFilter;
 import java.io.IOException;
+import java.lang.Object;
 import java.lang.String;
 import java.nio.file.FileSystems;
 import java.nio.file.FileVisitResult;
@@ -178,6 +179,7 @@ public final class Default
 		// [o] field:0:required name
 		// [o] object:0:required bytes
 		// [o] field:0:required string
+		// [o] object:0:required stream
 		// --- <<IS-BEGIN-PIPELINE-IN>> ---
 		// WARNING: Auto generate code will not be preserved upon Java signature update.
 		// Do not add custom code here.
@@ -195,6 +197,7 @@ public final class Default
 		String outputname = null;
 		byte[] outputbytes = null;
 		String outputstring = null;
+		Object outputstream = null;
 		// --- <<IS-END-INSTANCES-PIPELINE-OUT>> ---
 		
 		// --- <<IS-BEGIN-PIPELINE-OUT>> ---
@@ -205,6 +208,7 @@ public final class Default
 		pipelineOutMap.put("name", outputname);
 		pipelineOutMap.put("bytes", outputbytes);
 		pipelineOutMap.put("string", outputstring);
+		pipelineOutMap.put("stream", outputstream);
 		// --- <<IS-END-PIPELINE-OUT>> ---
 		// --- <<IS-END>> ---
 
