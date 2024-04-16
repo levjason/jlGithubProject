@@ -176,10 +176,17 @@ public final class Default
 		// --- <<IS-BEGIN-PIPELINE-IN>> ---
 		// WARNING: Auto generate code will not be preserved upon Java signature update.
 		// Do not add custom code here.
-		
+
 		IDataMap pipelineInMap = new IDataMap(pipeline);
 		String inputdelay = (String) pipelineInMap.get("delay");
 		// --- <<IS-END-PIPELINE-IN>> ---
+		try {
+			Thread.sleep(Long.parseLong(inputdelay));
+		} catch (NumberFormatException e) {
+			e.printStackTrace();
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 		// --- <<IS-END>> ---
 
                 
