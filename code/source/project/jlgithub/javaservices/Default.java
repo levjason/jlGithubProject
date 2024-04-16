@@ -50,7 +50,7 @@ public final class Default
 		// --- <<IS-BEGIN-PIPELINE-IN>> ---
 		// WARNING: Auto generate code will not be preserved upon Java signature update.
 		// Do not add custom code here.
-
+		
 		IDataMap pipelineInMap = new IDataMap(pipeline);
 		String inputsrcDir = (String) pipelineInMap.get("srcDir");
 		String inputsrcName = (String) pipelineInMap.get("srcName");
@@ -83,14 +83,14 @@ public final class Default
 		// --- <<IS-BEGIN-INSTANCES-PIPELINE-OUT>> ---
 		// WARNING: Auto generate code will not be preserved upon Java signature update.
 		// Do not add custom code here.
-
+		
 		String outputtgtPath = null;
 		// --- <<IS-END-INSTANCES-PIPELINE-OUT>> ---
-
+		
 		// --- <<IS-BEGIN-PIPELINE-OUT>> ---
 		// WARNING: Auto generate code will not be preserved upon Java signature update.
 		// Do not add custom code here.
-
+		
 		IDataMap pipelineOutMap = new IDataMap(pipeline);
 		pipelineOutMap.put("tgtPath", outputtgtPath);
 		// --- <<IS-END-PIPELINE-OUT>> ---
@@ -100,15 +100,27 @@ public final class Default
                 
 	}
 
+
+
+	public static final void ls (IData pipeline)
+        throws ServiceException
+	{
+		// --- <<IS-START(ls)>> ---
+		// @sigtype java 3.5
+		// --- <<IS-END>> ---
+
+                
+	}
+
 	// --- <<IS-START-SHARED>> ---
-
+	
 	private static class DirCopier extends SimpleFileVisitor<Path> {
-
+	
 		private Path _src;
 		private Path _tgt;
-
+	
 		DirCopier(Path src, Path tgt) {
-
+	
 			this._src = src;
 			this._tgt = tgt;
 		}
@@ -147,7 +159,7 @@ public final class Default
 	        return FileVisitResult.CONTINUE;
 	    }
 	}
-
+	
 	// --- <<IS-END-SHARED>> ---
 }
 
