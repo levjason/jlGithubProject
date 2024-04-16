@@ -12,6 +12,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FilenameFilter;
 import java.io.IOException;
+import java.io.InputStream;
 import java.lang.Object;
 import java.lang.String;
 import java.nio.file.FileSystems;
@@ -188,6 +189,7 @@ public final class Default
 		// Do not add custom code here.
 		
 		IDataMap pipelineInMap = new IDataMap(pipeline);
+		IDataCursor c = pipeline.getCursor();
 		String inputfname = (String) pipelineInMap.get("fname");
 		String inputloadAs = (String) pipelineInMap.get("loadAs");
 		String inputignoreError = (String) pipelineInMap.get("ignoreError");
