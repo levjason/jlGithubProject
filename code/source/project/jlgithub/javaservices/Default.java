@@ -223,7 +223,7 @@ public final class Default
 		
 		// pipeline out
 		
-		IDataUtil.put(c, "outputname", new File(inputfname).getName());
+		outputname =  new File(inputfname).getName();
 		
 		if (data != null) {
 			
