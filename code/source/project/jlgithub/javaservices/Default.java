@@ -172,6 +172,40 @@ public final class Default
 	{
 		// --- <<IS-START(readFile)>> ---
 		// @sigtype java 3.5
+		// [i] field:0:required fname
+		// [i] field:0:required loadAs
+		// [i] field:0:required ignoreError
+		// [o] field:0:required name
+		// [o] object:0:required bytes
+		// [o] field:0:required string
+		// --- <<IS-BEGIN-PIPELINE-IN>> ---
+		// WARNING: Auto generate code will not be preserved upon Java signature update.
+		// Do not add custom code here.
+		
+		IDataMap pipelineInMap = new IDataMap(pipeline);
+		String inputfname = (String) pipelineInMap.get("fname");
+		String inputloadAs = (String) pipelineInMap.get("loadAs");
+		String inputignoreError = (String) pipelineInMap.get("ignoreError");
+		// --- <<IS-END-PIPELINE-IN>> ---
+		
+		// --- <<IS-BEGIN-INSTANCES-PIPELINE-OUT>> ---
+		// WARNING: Auto generate code will not be preserved upon Java signature update.
+		// Do not add custom code here.
+		
+		String outputname = null;
+		byte[] outputbytes = null;
+		String outputstring = null;
+		// --- <<IS-END-INSTANCES-PIPELINE-OUT>> ---
+		
+		// --- <<IS-BEGIN-PIPELINE-OUT>> ---
+		// WARNING: Auto generate code will not be preserved upon Java signature update.
+		// Do not add custom code here.
+		
+		IDataMap pipelineOutMap = new IDataMap(pipeline);
+		pipelineOutMap.put("name", outputname);
+		pipelineOutMap.put("bytes", outputbytes);
+		pipelineOutMap.put("string", outputstring);
+		// --- <<IS-END-PIPELINE-OUT>> ---
 		// --- <<IS-END>> ---
 
                 
