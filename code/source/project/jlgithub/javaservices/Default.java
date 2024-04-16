@@ -9,6 +9,7 @@ import com.wm.app.b2b.server.ServiceException;
 // --- <<IS-START-IMPORTS>> ---
 import com.softwareag.util.IDataMap;
 import java.io.File;
+import java.io.FilenameFilter;
 import java.io.IOException;
 import java.lang.String;
 import java.nio.file.FileSystems;
@@ -127,7 +128,7 @@ public final class Default
 		// --- <<IS-END-INSTANCES-PIPELINE-OUT>> ---
 				// process
 		
-				File dir = new File(path);
+				File dir = new File(inputpath);
 				String[] files;
 				
 				if (dir.exists()) {
@@ -137,13 +138,13 @@ public final class Default
 							@Override
 							public boolean accept(File file, String filename) {
 								
-								return !filename.startsWith(".") && (filter == null || filename.toLowerCase().contains(filter.toLowerCase()));
+								return !filename.startsWith(".") && (inputfilter == null || filename.toLowerCase().contains(inputfilter.toLowerCase()));
 							}
 						});
 					else
-						throw new ServiceException("path is not a directory:" + path);
+						throw new ServiceException("path is not a directory:" + inputpath);
 				} else {
-					throw new ServiceException("Directory does not exist:" + path);
+					throw new ServiceException("Directory does not exist:" + inputpath);
 				}
 				
 		// --- <<IS-BEGIN-PIPELINE-OUT>> ---

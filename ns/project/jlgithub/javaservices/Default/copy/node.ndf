@@ -7,8 +7,9 @@
   <record name="svc_sig" javaclass="com.wm.util.Values">
     <record name="sig_in" javaclass="com.wm.util.Values">
       <value name="node_type">record</value>
-      <value name="node_subtype">input.output.java.wrapper.type.unknown</value>
+      <value name="node_subtype">unknown</value>
       <value name="is_public">false</value>
+      <value name="field_name">copyInput</value>
       <value name="field_type">record</value>
       <value name="field_dim">0</value>
       <value name="nillable">true</value>
@@ -17,13 +18,7 @@
       <array name="rec_fields" type="record" depth="1">
         <record javaclass="com.wm.util.Values">
           <value name="node_type">field</value>
-          <value name="node_subtype">Unknown</value>
-          <value name="node_comment"></value>
-          <record name="node_hints" javaclass="com.wm.util.Values">
-            <value name="field_largerEditor">false</value>
-            <value name="field_password">false</value>
-            <value name="field_usereditable">false</value>
-          </record>
+          <value name="node_subtype">unknown</value>
           <value name="is_public">false</value>
           <value name="field_name">srcDir</value>
           <value name="field_type">string</value>
@@ -34,13 +29,7 @@
         </record>
         <record javaclass="com.wm.util.Values">
           <value name="node_type">field</value>
-          <value name="node_subtype">Unknown</value>
-          <value name="node_comment"></value>
-          <record name="node_hints" javaclass="com.wm.util.Values">
-            <value name="field_largerEditor">false</value>
-            <value name="field_password">false</value>
-            <value name="field_usereditable">false</value>
-          </record>
+          <value name="node_subtype">unknown</value>
           <value name="is_public">false</value>
           <value name="field_name">srcName</value>
           <value name="field_type">string</value>
@@ -51,13 +40,7 @@
         </record>
         <record javaclass="com.wm.util.Values">
           <value name="node_type">field</value>
-          <value name="node_subtype">Unknown</value>
-          <value name="node_comment"></value>
-          <record name="node_hints" javaclass="com.wm.util.Values">
-            <value name="field_largerEditor">false</value>
-            <value name="field_password">false</value>
-            <value name="field_usereditable">false</value>
-          </record>
+          <value name="node_subtype">unknown</value>
           <value name="is_public">false</value>
           <value name="field_name">tgtDir</value>
           <value name="field_type">string</value>
@@ -68,13 +51,7 @@
         </record>
         <record javaclass="com.wm.util.Values">
           <value name="node_type">field</value>
-          <value name="node_subtype">Unknown</value>
-          <value name="node_comment"></value>
-          <record name="node_hints" javaclass="com.wm.util.Values">
-            <value name="field_largerEditor">false</value>
-            <value name="field_password">false</value>
-            <value name="field_usereditable">false</value>
-          </record>
+          <value name="node_subtype">unknown</value>
           <value name="is_public">false</value>
           <value name="field_name">tgtName</value>
           <value name="field_type">string</value>
@@ -85,13 +62,7 @@
         </record>
         <record javaclass="com.wm.util.Values">
           <value name="node_type">field</value>
-          <value name="node_subtype">Unknown</value>
-          <value name="node_comment"></value>
-          <record name="node_hints" javaclass="com.wm.util.Values">
-            <value name="field_largerEditor">false</value>
-            <value name="field_password">false</value>
-            <value name="field_usereditable">false</value>
-          </record>
+          <value name="node_subtype">unknown</value>
           <value name="is_public">false</value>
           <value name="field_name">overwrite</value>
           <value name="field_type">string</value>
@@ -105,8 +76,9 @@
     </record>
     <record name="sig_out" javaclass="com.wm.util.Values">
       <value name="node_type">record</value>
-      <value name="node_subtype">input.output.java.wrapper.type.unknown</value>
+      <value name="node_subtype">unknown</value>
       <value name="is_public">false</value>
+      <value name="field_name">copyOutput</value>
       <value name="field_type">record</value>
       <value name="field_dim">0</value>
       <value name="nillable">true</value>
@@ -115,13 +87,7 @@
       <array name="rec_fields" type="record" depth="1">
         <record javaclass="com.wm.util.Values">
           <value name="node_type">field</value>
-          <value name="node_subtype">Unknown</value>
-          <value name="node_comment"></value>
-          <record name="node_hints" javaclass="com.wm.util.Values">
-            <value name="field_largerEditor">false</value>
-            <value name="field_password">false</value>
-            <value name="field_usereditable">false</value>
-          </record>
+          <value name="node_subtype">unknown</value>
           <value name="is_public">false</value>
           <value name="field_name">tgtPath</value>
           <value name="field_type">string</value>
@@ -149,7 +115,7 @@
     <value name="field_largerEditor">false</value>
     <value name="field_password">false</value>
     <number name="createdDate" type="Long">0</number>
-    <number name="lastModifiedDate" type="Long">1713276806724</number>
+    <number name="lastModifiedDate" type="Long">1713279376134</number>
     <value name="createdBy"></value>
     <record name="edgeServer" javaclass="com.wm.util.Values">
       <value name="id">default</value>
