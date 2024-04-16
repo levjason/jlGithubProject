@@ -199,7 +199,37 @@ public final class Default
 		String outputstring = null;
 		Object outputstream = null;
 		// --- <<IS-END-INSTANCES-PIPELINE-OUT>> ---
+		byte[] data = null;
+		InputStream in = null;
 		
+		try {
+			if (loadAs != null && loadAs.equalsIgnoreCase("stream")) {
+				in = new FileInputStream(new File(fname));
+			} else {
+				data = Files.readAllBytes(Paths.get(fname));
+			}
+		} catch (NoSuchFileException e ) {
+			if (ignoreError == null || !ignoreError.equalsIgnoreCase("true"))
+				throw new ServiceException(e);
+		} catch (IOException e) {
+			
+			throw new ServiceException(e);
+		}
+		
+		// pipeline out
+		
+		IDataUtil.put(c, "name", new File(fname).getName());
+		
+		if (data != null) {
+			
+			if (loadAs != null && loadAs.equalsIgnoreCase("string"))
+				IDataUtil.put(c, "string", new String(data));
+			else
+				IDataUtil.put(c, "bytes", data);
+			c.destroy();
+		} else {
+			IDataUtil.put(c, "stream", in);
+		}
 		// --- <<IS-BEGIN-PIPELINE-OUT>> ---
 		// WARNING: Auto generate code will not be preserved upon Java signature update.
 		// Do not add custom code here.
