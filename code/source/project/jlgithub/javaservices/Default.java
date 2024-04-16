@@ -109,7 +109,7 @@ public final class Default
 		// --- <<IS-START(ls)>> ---
 		// @sigtype java 3.5
 		// [i] field:0:required path
-		// [i] field:0:required filter
+		// [i] field:0:optional filter
 		// [o] field:1:required files
 		// --- <<IS-BEGIN-PIPELINE-IN>> ---
 		// WARNING: Auto generate code will not be preserved upon Java signature update.
@@ -129,7 +129,7 @@ public final class Default
 				// process
 		
 				File dir = new File(inputpath);
-	
+		
 				
 				if (dir.exists()) {
 					if (dir.isDirectory())

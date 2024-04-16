@@ -45,6 +45,7 @@
           <value name="field_name">filter</value>
           <value name="field_type">string</value>
           <value name="field_dim">0</value>
+          <value name="field_opt">true</value>
           <value name="nillable">true</value>
           <value name="form_qualified">false</value>
           <value name="is_global">false</value>
@@ -95,19 +96,6 @@
   <value name="system_service">no</value>
   <value name="retry_max">0</value>
   <value name="retry_interval">0</value>
-  <record name="node_hints" javaclass="com.wm.util.Values">
-    <value name="field_largerEditor">false</value>
-    <value name="field_password">false</value>
-    <number name="createdDate" type="Long">0</number>
-    <number name="lastModifiedDate" type="Long">1713279558629</number>
-    <value name="createdBy"></value>
-    <record name="edgeServer" javaclass="com.wm.util.Values">
-      <value name="id">default</value>
-      <value name="group">Default</value>
-      <value name="name">Cloud Execution</value>
-    </record>
-    <value name="lastModifiedBy">usajlev</value>
-  </record>
   <value name="svc_in_validator_options">none</value>
   <value name="svc_out_validator_options">none</value>
   <value name="auditoption">0</value>
