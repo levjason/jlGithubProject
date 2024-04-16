@@ -2,6 +2,12 @@
 
 <Values version="2.0">
   <value name="name">ls</value>
+  <array name="sig" type="value" depth="1">
+    <value>[i] field:0:required path</value>
+    <value>[i] field:0:optional filter</value>
+    <value>[o] field:1:required files</value>
+  </array>
+  <value name="sigtype">java 3.5</value>
   <value name="encodeutf8">true</value>
   <value name="body">Ly8gLS0tIDw8SVMtQkVHSU4tUElQRUxJTkUtSU4+PiAtLS0KLy8gV0FSTklORzogQXV0byBnZW5l
 cmF0ZSBjb2RlIHdpbGwgbm90IGJlIHByZXNlcnZlZCB1cG9uIEphdmEgc2lnbmF0dXJlIHVwZGF0
@@ -27,5 +33,5 @@ Uy1CRUdJTi1QSVBFTElORS1PVVQ+PiAtLS0KLy8gV0FSTklORzogQXV0byBnZW5lcmF0ZSBjb2Rl
 IHdpbGwgbm90IGJlIHByZXNlcnZlZCB1cG9uIEphdmEgc2lnbmF0dXJlIHVwZGF0ZS4KLy8gRG8g
 bm90IGFkZCBjdXN0b20gY29kZSBoZXJlLgoKSURhdGFNYXAgcGlwZWxpbmVPdXRNYXAgPSBuZXcg
 SURhdGFNYXAocGlwZWxpbmUpOwpwaXBlbGluZU91dE1hcC5wdXQoImZpbGVzIiwgb3V0cHV0Zmls
-ZXMpOwovLyAtLS0gPDxJUy1FTkQtUElQRUxJTkUtT1VUPj4gLS0t</value>
+ZXMpOwovLyAtLS0gPDxJUy1FTkQtUElQRUxJTkUtT1VUPj4gLS0tCg==</value>
 </Values>
