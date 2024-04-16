@@ -26,6 +26,7 @@ CXJldHVybiBGaWxlVmlzaXRSZXN1bHQuQ09OVElOVUU7CgkJfQoJfQoK</value>
   <array name="imports" type="value" depth="1">
     <value>com.softwareag.util.IDataMap</value>
     <value>java.io.File</value>
+    <value>java.io.FileInputStream</value>
     <value>java.io.FilenameFilter</value>
     <value>java.io.IOException</value>
     <value>java.lang.Object</value>
@@ -33,7 +34,9 @@ CXJldHVybiBGaWxlVmlzaXRSZXN1bHQuQ09OVElOVUU7CgkJfQoJfQoK</value>
     <value>java.nio.file.FileSystems</value>
     <value>java.nio.file.FileVisitResult</value>
     <value>java.nio.file.Files</value>
+    <value>java.nio.file.NoSuchFileException</value>
     <value>java.nio.file.Path</value>
+    <value>java.nio.file.Paths</value>
     <value>java.nio.file.SimpleFileVisitor</value>
     <value>java.nio.file.StandardCopyOption</value>
     <value>java.nio.file.attribute.BasicFileAttributes</value>

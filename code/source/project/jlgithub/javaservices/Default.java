@@ -9,6 +9,7 @@ import com.wm.app.b2b.server.ServiceException;
 // --- <<IS-START-IMPORTS>> ---
 import com.softwareag.util.IDataMap;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FilenameFilter;
 import java.io.IOException;
 import java.lang.Object;
@@ -16,7 +17,9 @@ import java.lang.String;
 import java.nio.file.FileSystems;
 import java.nio.file.FileVisitResult;
 import java.nio.file.Files;
+import java.nio.file.NoSuchFileException;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.nio.file.SimpleFileVisitor;
 import java.nio.file.StandardCopyOption;
 import java.nio.file.attribute.BasicFileAttributes;
@@ -209,7 +212,7 @@ public final class Default
 				data = Files.readAllBytes(Paths.get(inputfname));
 			}
 		} catch (NoSuchFileException e ) {
-			if (ignoreError == null || !ignoreError.equalsIgnoreCase("true"))
+			if (inputignoreError == null || !inputignoreError.equalsIgnoreCase("true"))
 				throw new ServiceException(e);
 		} catch (IOException e) {
 			
