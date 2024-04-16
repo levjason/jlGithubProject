@@ -129,11 +129,11 @@ public final class Default
 				// process
 		
 				File dir = new File(inputpath);
-				String[] files;
+	
 				
 				if (dir.exists()) {
 					if (dir.isDirectory())
-						files = dir.list(new FilenameFilter() {
+						outputfiles = dir.list(new FilenameFilter() {
 							
 							@Override
 							public boolean accept(File file, String filename) {
