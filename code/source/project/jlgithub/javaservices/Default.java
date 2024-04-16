@@ -189,7 +189,6 @@ public final class Default
 		// Do not add custom code here.
 		
 		IDataMap pipelineInMap = new IDataMap(pipeline);
-		IDataCursor c = pipeline.getCursor();
 		String inputfname = (String) pipelineInMap.get("fname");
 		String inputloadAs = (String) pipelineInMap.get("loadAs");
 		String inputignoreError = (String) pipelineInMap.get("ignoreError");
@@ -228,12 +227,11 @@ public final class Default
 		if (data != null) {
 			
 			if (inputloadAs != null && inputloadAs.equalsIgnoreCase("string"))
-				IDataUtil.put(c, "string", new String(data));
+				outputstring = new String(data);
 			else
-				IDataUtil.put(c, "bytes", data);
-			c.destroy();
+				outputbytes =  data;
 		} else {
-			IDataUtil.put(c, "stream", in);
+			outputstream  =  in;
 		}
 		// --- <<IS-BEGIN-PIPELINE-OUT>> ---
 		// WARNING: Auto generate code will not be preserved upon Java signature update.
