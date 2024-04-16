@@ -172,6 +172,14 @@ public final class Default
 	{
 		// --- <<IS-START(sleep)>> ---
 		// @sigtype java 3.5
+		// [i] field:0:required delay
+		// --- <<IS-BEGIN-PIPELINE-IN>> ---
+		// WARNING: Auto generate code will not be preserved upon Java signature update.
+		// Do not add custom code here.
+		
+		IDataMap pipelineInMap = new IDataMap(pipeline);
+		String inputdelay = (String) pipelineInMap.get("delay");
+		// --- <<IS-END-PIPELINE-IN>> ---
 		// --- <<IS-END>> ---
 
                 
