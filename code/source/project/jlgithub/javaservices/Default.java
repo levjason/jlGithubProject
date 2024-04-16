@@ -107,6 +107,32 @@ public final class Default
 	{
 		// --- <<IS-START(ls)>> ---
 		// @sigtype java 3.5
+		// [i] field:0:required path
+		// [i] field:0:required filter
+		// [o] field:1:required files
+		// --- <<IS-BEGIN-PIPELINE-IN>> ---
+		// WARNING: Auto generate code will not be preserved upon Java signature update.
+		// Do not add custom code here.
+		
+		IDataMap pipelineInMap = new IDataMap(pipeline);
+		String inputpath = (String) pipelineInMap.get("path");
+		String inputfilter = (String) pipelineInMap.get("filter");
+		// --- <<IS-END-PIPELINE-IN>> ---
+		
+		// --- <<IS-BEGIN-INSTANCES-PIPELINE-OUT>> ---
+		// WARNING: Auto generate code will not be preserved upon Java signature update.
+		// Do not add custom code here.
+		
+		String[] outputfiles = null;
+		// --- <<IS-END-INSTANCES-PIPELINE-OUT>> ---
+		
+		// --- <<IS-BEGIN-PIPELINE-OUT>> ---
+		// WARNING: Auto generate code will not be preserved upon Java signature update.
+		// Do not add custom code here.
+		
+		IDataMap pipelineOutMap = new IDataMap(pipeline);
+		pipelineOutMap.put("files", outputfiles);
+		// --- <<IS-END-PIPELINE-OUT>> ---
 		// --- <<IS-END>> ---
 
                 
