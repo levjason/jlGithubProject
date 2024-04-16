@@ -159,8 +159,20 @@ public final class Default
                 
 	}
 
-	// --- <<IS-START-SHARED>> ---
 
+
+	public static final void sleep (IData pipeline)
+        throws ServiceException
+	{
+		// --- <<IS-START(sleep)>> ---
+		// @sigtype java 3.5
+		// --- <<IS-END>> ---
+
+                
+	}
+
+	// --- <<IS-START-SHARED>> ---
+	
 	private static class DirCopier extends SimpleFileVisitor<Path> {
 	
 		private Path _src;
@@ -206,7 +218,7 @@ public final class Default
 	        return FileVisitResult.CONTINUE;
 	    }
 	}
-
+	
 	// --- <<IS-END-SHARED>> ---
 }
 
