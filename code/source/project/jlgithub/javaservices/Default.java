@@ -51,7 +51,7 @@ public final class Default
 		// --- <<IS-BEGIN-PIPELINE-IN>> ---
 		// WARNING: Auto generate code will not be preserved upon Java signature update.
 		// Do not add custom code here.
-		
+
 		IDataMap pipelineInMap = new IDataMap(pipeline);
 		String inputsrcDir = (String) pipelineInMap.get("srcDir");
 		String inputsrcName = (String) pipelineInMap.get("srcName");
@@ -60,23 +60,29 @@ public final class Default
 		String inputoverwrite = (String) pipelineInMap.get("overwrite");
 		// --- <<IS-END-PIPELINE-IN>> ---
 		try {
-			
+
 			if (inputtgtName == null && inputtgtDir == null)
 				throw new ServiceException("Must specify either tgtName or tgtDir");
-			
+
 			if (inputtgtName == null || inputtgtName.length() == 0)
 				inputtgtName = inputsrcName;
-			
+
 			if (inputtgtDir == null)
 				inputtgtDir = inputsrcDir;
-			
-			if (!new File(inputtgtDir).exists());
-				new File(inputtgtDir).mkdirs();
-			
-			if  (new File(inputsrcDir, inputsrcName).isDirectory()) {
-				new DirCopier(FileSystems.getDefault().getPath(inputsrcDir, inputsrcName), FileSystems.getDefault().getPath(inputtgtDir, inputtgtName)).copy(inputoverwrite != null && inputoverwrite.equalsIgnoreCase("true"));
-			} else if (!(new File(inputtgtDir, inputtgtName).exists()) || (inputoverwrite != null && inputoverwrite.equalsIgnoreCase("true"))) {
-				Files.copy(FileSystems.getDefault().getPath(inputsrcDir, inputsrcName), FileSystems.getDefault().getPath(inputtgtDir, inputtgtName), StandardCopyOption.REPLACE_EXISTING);
+
+			if (!new File(inputtgtDir).exists())
+				;
+			new File(inputtgtDir).mkdirs();
+
+			if (new File(inputsrcDir, inputsrcName).isDirectory()) {
+				new DirCopier(FileSystems.getDefault().getPath(inputsrcDir, inputsrcName),
+						FileSystems.getDefault().getPath(inputtgtDir, inputtgtName))
+						.copy(inputoverwrite != null && inputoverwrite.equalsIgnoreCase("true"));
+			} else if (!(new File(inputtgtDir, inputtgtName).exists())
+					|| (inputoverwrite != null && inputoverwrite.equalsIgnoreCase("true"))) {
+				Files.copy(FileSystems.getDefault().getPath(inputsrcDir, inputsrcName),
+						FileSystems.getDefault().getPath(inputtgtDir, inputtgtName),
+						StandardCopyOption.REPLACE_EXISTING);
 			}
 		} catch (IOException e) {
 			throw new ServiceException(e);
@@ -84,14 +90,14 @@ public final class Default
 		// --- <<IS-BEGIN-INSTANCES-PIPELINE-OUT>> ---
 		// WARNING: Auto generate code will not be preserved upon Java signature update.
 		// Do not add custom code here.
-		
+
 		String outputtgtPath = null;
 		// --- <<IS-END-INSTANCES-PIPELINE-OUT>> ---
-		
+
 		// --- <<IS-BEGIN-PIPELINE-OUT>> ---
 		// WARNING: Auto generate code will not be preserved upon Java signature update.
 		// Do not add custom code here.
-		
+
 		IDataMap pipelineOutMap = new IDataMap(pipeline);
 		pipelineOutMap.put("tgtPath", outputtgtPath);
 		// --- <<IS-END-PIPELINE-OUT>> ---
@@ -114,43 +120,43 @@ public final class Default
 		// --- <<IS-BEGIN-PIPELINE-IN>> ---
 		// WARNING: Auto generate code will not be preserved upon Java signature update.
 		// Do not add custom code here.
-		
+
 		IDataMap pipelineInMap = new IDataMap(pipeline);
 		String inputpath = (String) pipelineInMap.get("path");
 		String inputfilter = (String) pipelineInMap.get("filter");
 		// --- <<IS-END-PIPELINE-IN>> ---
-		
+
 		// --- <<IS-BEGIN-INSTANCES-PIPELINE-OUT>> ---
 		// WARNING: Auto generate code will not be preserved upon Java signature update.
 		// Do not add custom code here.
-		
+
 		String[] outputfiles = null;
 		// --- <<IS-END-INSTANCES-PIPELINE-OUT>> ---
-				// process
-		
-				File dir = new File(inputpath);
-		
-				
-				if (dir.exists()) {
-					if (dir.isDirectory())
-						outputfiles = dir.list(new FilenameFilter() {
-							
-							@Override
-							public boolean accept(File file, String filename) {
-								
-								return !filename.startsWith(".") && (inputfilter == null || filename.toLowerCase().contains(inputfilter.toLowerCase()));
-							}
-						});
-					else
-						throw new ServiceException("path is not a directory:" + inputpath);
-				} else {
-					throw new ServiceException("Directory does not exist:" + inputpath);
-				}
-				
+		// process
+
+		File dir = new File(inputpath);
+
+		if (dir.exists()) {
+			if (dir.isDirectory())
+				outputfiles = dir.list(new FilenameFilter() {
+
+					@Override
+					public boolean accept(File file, String filename) {
+
+						return !filename.startsWith(".")
+								&& (inputfilter == null || filename.toLowerCase().contains(inputfilter.toLowerCase()));
+					}
+				});
+			else
+				throw new ServiceException("path is not a directory:" + inputpath);
+		} else {
+			throw new ServiceException("Directory does not exist:" + inputpath);
+		}
+
 		// --- <<IS-BEGIN-PIPELINE-OUT>> ---
 		// WARNING: Auto generate code will not be preserved upon Java signature update.
 		// Do not add custom code here.
-		
+
 		IDataMap pipelineOutMap = new IDataMap(pipeline);
 		pipelineOutMap.put("files", outputfiles);
 		// --- <<IS-END-PIPELINE-OUT>> ---
@@ -172,53 +178,55 @@ public final class Default
 	}
 
 	// --- <<IS-START-SHARED>> ---
-	
+
 	private static class DirCopier extends SimpleFileVisitor<Path> {
-	
+
 		private Path _src;
 		private Path _tgt;
-	
+
 		DirCopier(Path src, Path tgt) {
-	
+
 			this._src = src;
 			this._tgt = tgt;
 		}
+
 		public void copy(boolean overwrite) throws IOException, ServiceException {
-			
+
 			if (this._tgt.toFile().exists() && overwrite)
 				this._tgt.toFile().delete();
 			else if (this._tgt.toFile().exists())
-				throw new ServiceException("Target directory already exists and overwrite not specified!: " + this._tgt.toFile().getCanonicalPath());
-			
-			 Files.walkFileTree(_src, this);
+				throw new ServiceException("Target directory already exists and overwrite not specified!: "
+						+ this._tgt.toFile().getCanonicalPath());
+
+			Files.walkFileTree(_src, this);
 		}
-		
+
 		@Override
-	    public FileVisitResult visitFile(Path file, BasicFileAttributes attributes) {
-	 
-	        try {
-	            Path targetFile = _tgt.resolve(_src.relativize(file));
-	            Files.copy(file, targetFile);
-	        } catch (IOException ex) {
-	            System.err.println(ex);
-	        }
-	 
-	        return FileVisitResult.CONTINUE;
-	    }
-	 
-	    @Override
-	    public FileVisitResult preVisitDirectory(Path dir, BasicFileAttributes attributes) {
-	        try {
-	            Path newDir = _tgt.resolve(_src.relativize(dir));
-	            Files.createDirectory(newDir);
-	        } catch (IOException ex) {
-	            System.err.println(ex);
-	        }
-	 
-	        return FileVisitResult.CONTINUE;
-	    }
+		public FileVisitResult visitFile(Path file, BasicFileAttributes attributes) {
+
+			try {
+				Path targetFile = _tgt.resolve(_src.relativize(file));
+				Files.copy(file, targetFile);
+			} catch (IOException ex) {
+				System.err.println(ex);
+			}
+
+			return FileVisitResult.CONTINUE;
+		}
+
+		@Override
+		public FileVisitResult preVisitDirectory(Path dir, BasicFileAttributes attributes) {
+			try {
+				Path newDir = _tgt.resolve(_src.relativize(dir));
+				Files.createDirectory(newDir);
+			} catch (IOException ex) {
+				System.err.println(ex);
+			}
+
+			return FileVisitResult.CONTINUE;
+		}
 	}
-	
+
 	// --- <<IS-END-SHARED>> ---
 }
 
