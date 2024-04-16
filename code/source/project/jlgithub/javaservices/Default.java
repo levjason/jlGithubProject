@@ -167,6 +167,18 @@ public final class Default
 
 
 
+	public static final void readFile (IData pipeline)
+        throws ServiceException
+	{
+		// --- <<IS-START(readFile)>> ---
+		// @sigtype java 3.5
+		// --- <<IS-END>> ---
+
+                
+	}
+
+
+
 	public static final void sleep (IData pipeline)
         throws ServiceException
 	{
