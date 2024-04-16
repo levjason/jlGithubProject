@@ -113,7 +113,7 @@ public final class Default
 	}
 
 	// --- <<IS-START-SHARED>> ---
-	
+
 	private static class DirCopier extends SimpleFileVisitor<Path> {
 	
 		private Path _src;
@@ -159,7 +159,7 @@ public final class Default
 	        return FileVisitResult.CONTINUE;
 	    }
 	}
-	
+
 	// --- <<IS-END-SHARED>> ---
 }
 

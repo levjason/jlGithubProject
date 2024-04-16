@@ -16,3 +16,7 @@ services:
   packages:
   - name: JlGithubProject
     version: "1.0"
+- serviceName: project.jlgithub.javaservices.Default:ls
+  packages:
+  - name: JlGithubProject
+    version: "1.0"
