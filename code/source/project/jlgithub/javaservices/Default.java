@@ -24,7 +24,6 @@ import java.nio.file.Paths;
 import java.nio.file.SimpleFileVisitor;
 import java.nio.file.StandardCopyOption;
 import java.nio.file.attribute.BasicFileAttributes;
-import org.apache.commons.lang3.StringUtils;
 // --- <<IS-END-IMPORTS>> ---
 
 public final class Default
